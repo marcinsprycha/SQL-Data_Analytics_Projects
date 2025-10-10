@@ -3,8 +3,8 @@ SELECT
     dp.ProductKey,
     COUNT(fis.ProductKey) NumberOfSold,
     fis.UnitPrice,
-    SUM(fis.salesamount) AmountSold
+    CAST(SUM(fis.salesamount)AS int) TotalIncome
 FROM DimProduct dp 
 LEFT JOIN FactInternetSales fis on dp.ProductKey = fis.ProductKey
 GROUP BY EnglishProductName,dp.ProductKey, fis.UnitPrice
-ORDER BY NumberOfSold DESC
+ORDER BY 5 DESC
